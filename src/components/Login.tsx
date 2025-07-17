@@ -20,12 +20,12 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
       // Simular datos del usuario
       const mockUser = {
         Id: 1,
-        Title: "Usuario Demo",
-        Email: "usuario@demo.com",
-        LoginName: "i:0#.f|membership|usuario@demo.com",
+        Title: "Catalina",
+        Email: "catalina@agrosuper.cl",
+        LoginName: "i:0#.f|membership|catalina@agrosuper.cl",
         profile: {
-          displayName: "Usuario Demo",
-          mail: "usuario@demo.com",
+          displayName: "Catalina",
+          mail: "catalina@agrosuper.cl",
         },
       };
 
