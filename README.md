@@ -1,46 +1,187 @@
-# Getting Started with Create React App
+# SharePoint React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Una aplicación React moderna para SharePoint que incluye autenticación, navegación y funcionalidades CRUD completas.
 
-## Available Scripts
+## 🚀 Características
 
-In the project directory, you can run:
+- **Autenticación con SharePoint**: Login integrado con PnP (Patterns and Practices)
+- **Navegación Responsiva**: Navbar moderno con menú móvil
+- **Dashboard Interactivo**: Estadísticas y actividad reciente
+- **Mantenedor CRUD**: Gestión completa de elementos con formularios
+- **Configuración Avanzada**: Múltiples opciones de configuración organizadas en pestañas
+- **Diseño Moderno**: Interfaz construida con Tailwind CSS
+- **TypeScript**: Código tipado para mayor robustez
 
-### `npm start`
+## 📁 Estructura del Proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+src/
+├── components/
+│   ├── Login.tsx          # Componente de autenticación
+│   ├── Navbar.tsx         # Barra de navegación
+│   └── Mantenedor.tsx     # CRUD de elementos
+├── pages/
+│   ├── Dashboard.tsx      # Página principal con estadísticas
+│   └── Configuracion.tsx  # Configuración del sistema
+├── App.tsx               # Componente principal
+└── index.css             # Estilos globales con Tailwind
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🛠️ Tecnologías Utilizadas
 
-### `npm test`
+- **React 19**: Framework principal
+- **TypeScript**: Tipado estático
+- **Tailwind CSS**: Framework de estilos
+- **PnP (Patterns and Practices)**: Integración con SharePoint
+- **React Hooks**: Gestión de estado
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Instalación y Uso
 
-### `npm run build`
+1. **Clonar el repositorio**:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone <repository-url>
+   cd sharepoint-react-app
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Instalar dependencias**:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. **Configurar variables de entorno**:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   # Copiar el archivo de ejemplo
+   cp env.example .env
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   # Editar las variables con tus valores
+   nano .env
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. **Ejecutar en desarrollo**:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ```bash
+   npm start
+   ```
 
-## Learn More
+5. **Construir para producción**:
+   ```bash
+   npm run build
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔐 Configuración SSO y Publicación
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para configurar Single Sign-On (SSO) y publicar la aplicación en SharePoint Online, consulta la guía completa:
+
+**[📖 SSO-DEPLOYMENT.md](SSO-DEPLOYMENT.md)**
+
+Esta guía incluye:
+
+- ✅ Configuración de Azure AD
+- ✅ Configuración de SharePoint
+- ✅ Publicación de la aplicación
+- ✅ Configuración de SSO
+- ✅ Scripts de automatización
+- ✅ Solución de problemas
+
+## 📋 Funcionalidades
+
+### 🔐 Autenticación
+
+- Login simulado con SharePoint
+- Gestión de sesión de usuario
+- Información del perfil de usuario
+
+### 📊 Dashboard
+
+- Estadísticas en tiempo real
+- Actividad reciente del sistema
+- Información del usuario actual
+- Acciones rápidas
+
+### 📝 Mantenedor
+
+- **Crear**: Formulario para nuevos elementos
+- **Leer**: Tabla con filtros y búsqueda
+- **Actualizar**: Edición inline de elementos
+- **Eliminar**: Confirmación antes de eliminar
+- Filtros por categoría y búsqueda por texto
+
+### ⚙️ Configuración
+
+- **General**: Nombre del sitio, zona horaria, idioma
+- **Notificaciones**: Email, push, recordatorios
+- **Seguridad**: Autenticación 2FA, timeout de sesión
+- **Apariencia**: Tema, densidad, animaciones
+
+## 🎨 Diseño
+
+La aplicación utiliza un diseño moderno y responsivo con:
+
+- Paleta de colores profesional
+- Componentes reutilizables
+- Animaciones suaves
+- Interfaz adaptativa para móviles
+- Iconos SVG integrados
+
+## 🔧 Configuración de SharePoint
+
+Para integrar completamente con SharePoint:
+
+1. **Configurar PnP**:
+
+   ```typescript
+   import { spfi } from "@pnp/sp";
+   import { graphfi } from "@pnp/graph";
+
+   const sp = spfi("https://your-site.sharepoint.com");
+   const graph = graphfi();
+   ```
+
+2. **Autenticación**:
+
+   - Configurar Azure AD App Registration
+   - Configurar permisos de SharePoint
+   - Implementar flujo de autenticación OAuth
+
+3. **Listas de SharePoint**:
+   - Crear listas para los datos del mantenedor
+   - Configurar permisos de usuario
+   - Implementar operaciones CRUD reales
+
+## 📱 Responsive Design
+
+La aplicación es completamente responsiva y funciona en:
+
+- 📱 Móviles (320px+)
+- 📱 Tablets (768px+)
+- 💻 Desktop (1024px+)
+- 🖥️ Pantallas grandes (1280px+)
+
+## 🚀 Próximas Mejoras
+
+- [ ] Integración real con SharePoint Online
+- [ ] Autenticación OAuth completa
+- [ ] Sincronización en tiempo real
+- [ ] Exportación de datos
+- [ ] Reportes avanzados
+- [ ] Temas personalizables
+- [ ] Notificaciones push reales
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📞 Soporte
+
+Para soporte técnico o preguntas, contacta al equipo de desarrollo.
